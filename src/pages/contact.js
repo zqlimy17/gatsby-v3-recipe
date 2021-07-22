@@ -1,5 +1,6 @@
-import React from "react"
-import Layout from "../components/Layout"
+import React from "react";
+import Featured from "../components/Featured";
+import Layout from "../components/Layout";
 
 const Contact = () => {
   return (
@@ -42,9 +43,10 @@ const Contact = () => {
             </form>
           </article>
         </section>
+        <Featured />
       </main>
     </Layout>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
