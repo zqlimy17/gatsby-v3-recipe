@@ -12,7 +12,7 @@ const Tags = ({ data }) => {
           {tags.map(tag => {
             const [text, value] = tag;
             return (
-              <Link to={`/${text}`} key={text} className="tag">
+              <Link to={`/tags/${text}`} key={text} className="tag">
                 <h5>{text}</h5>
                 <p>{value} recipes</p>
               </Link>
