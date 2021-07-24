@@ -11,7 +11,7 @@ const TagList = ({ recipes }) => {
         {tags.map(tag => {
           const [text, value] = tag;
           return (
-            <Link to={`/${text}`} key={text}>
+            <Link to={`/tags/${text}`} key={text}>
               {text} ({value})
             </Link>
           );
