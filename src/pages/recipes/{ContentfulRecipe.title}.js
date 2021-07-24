@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../../components/Layout";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { BsClockHistory, BsClock, BsPeople } from "react-icons";
+import { BsClockHistory, BsClock, BsPeople } from "react-icons/bs";
 
 const RecipeTemplate = ({ data }) => {
   const {
@@ -19,7 +19,80 @@ const RecipeTemplate = ({ data }) => {
   return (
     <Layout>
       <main className="page">
-        <h2>{title}</h2>
+        <div className="recipe-page">
+          <section className="recipe-hero">
+            <GatsbyImage
+              image={pathToImage}
+              alt={title}
+              className="about-img"
+            />
+            <article className="recipe-info">
+              <h2>{title}</h2>
+              <p>{description}</p>
+              <div className="recipe-icons">
+                <article>
+                  <BsClock />
+                  <h5>prep time</h5>
+                  <p>{prepTime} minutes</p>
+                </article>
+                <article>
+                  <BsClockHistory />
+                  <h5>cook time</h5>
+                  <p>{cookTime} minutes</p>
+                </article>
+                <article>
+                  <BsPeople />
+                  <h5>servings</h5>
+                  <p>{servings}</p>
+                </article>
+              </div>
+              <p className="recipe-tags">
+                Tags:
+                {tags.map((tag, index) => {
+                  return <Link to={`/tags/${tag}`}>{tag}</Link>;
+                })}
+              </p>
+            </article>
+          </section>
+          <section className="recipe-content">
+            <article>
+              <h4>instructions</h4>
+              {instructions.map((instruction, index) => {
+                return (
+                  <div key={index} className="single-instruction">
+                    <header>
+                      <p>step {index + 1}</p>
+                      <div></div>
+                    </header>
+                    <p>{instruction}</p>
+                  </div>
+                );
+              })}
+            </article>
+            <article className="section-column">
+              <div>
+                <h4>ingredients</h4>
+                {ingredients.map((ingredient, index) => {
+                  return (
+                    <p key={index} className="single-ingredient">
+                      {ingredient}
+                    </p>
+                  );
+                })}
+              </div>
+              <div>
+                <h4>Tools</h4>
+                {tools.map((tool, index) => {
+                  return (
+                    <p key={index} className="single-tool">
+                      {tool}
+                    </p>
+                  );
+                })}
+              </div>
+            </article>
+          </section>
+        </div>
       </main>
     </Layout>
   );
