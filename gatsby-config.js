@@ -15,7 +15,6 @@ module.exports = {
     description: "Nice and clean recipes site",
     author: "zqlimy",
   },
-  pathPrefix: `/recipes`,
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
