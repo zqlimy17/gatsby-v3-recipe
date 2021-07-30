@@ -3,13 +3,14 @@ import Layout from "../components/Layout";
 
 import { graphql, Link } from "gatsby";
 import RecipesList from "../components/RecipesList";
+import Seo from "../components/Seo";
 
-const TagTemplate = ({ data }) => {
+const TagTemplate = ({ data, pageContext }) => {
   const recipes = data.allContentfulRecipe.nodes;
   return (
     <Layout>
+      <Seo title={pageContext.tag} />
       <main className="page">
-        <h2></h2>
         <div className="tag-recipes">
           <RecipesList recipes={recipes} />
         </div>

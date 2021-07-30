@@ -3,10 +3,11 @@ import Layout from "../components/Layout";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import Featured from "../components/Featured";
-
+import Seo from "../components/Seo";
 const About = () => {
   return (
     <Layout>
+      <Seo title="About" />
       <main className="page">
         <section className="about-page">
           <article>
